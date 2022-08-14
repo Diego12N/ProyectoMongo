@@ -5,7 +5,7 @@ const {
 	getProducts,
 	saveProducts,
 	modifyProduct,
-} = require("../helpers/routesHelpers");
+} = require("../controllers/routesControllers");
 
 const userAdmin = true;
 
@@ -27,10 +27,10 @@ routes.get("/:id?", async (req, res) => {
 	res.send(products);
 });
 
-routes.post("/", authorizedAdmin, (req, res) => {
-	let newProduct = saveProducts(req);
-
-	res.send(newProduct);
+routes.post("/", authorizedAdmin, async (req, res) => {
+	const idNewProduct = await saveProducts(req);
+	console.log(idNewProduct);
+	res.json(idNewProduct);
 });
 
 routes.put("/:id", authorizedAdmin, (req, res) => {

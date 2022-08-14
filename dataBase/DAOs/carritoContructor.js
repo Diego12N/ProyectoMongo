@@ -1,4 +1,7 @@
-const {getProducts, getCartProducts} = require("../helpers/routesHelpers");
+const {
+	getProducts,
+	getCartProducts,
+} = require("../controllers/routesControllers");
 const CarritoModel = require("../models/carritoModel");
 
 class Carrito {

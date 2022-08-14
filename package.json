@@ -5,7 +5,8 @@
 	"main": "./dataBase/server.js",
 	"type": "commonjs",
 	"scripts": {
-		"start": "node ."
+		"dev": "nodemon ./dataBase/server.js --ignore client",
+		"start": "nodemon ./dataBase/server.js --exec babel-node"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,6 +14,13 @@
 	"dependencies": {
 		"cors": "^2.8.5",
 		"express": "^4.18.1",
-		"mongoose": "^6.4.4"
+		"mongoose": "^6.4.4",
+		"socket.io": "^4.5.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.18.10",
+		"@babel/core": "^7.18.10",
+		"@babel/node": "^7.18.10",
+		"@babel/preset-env": "^7.18.10"
 	}
 }

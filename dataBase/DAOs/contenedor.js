@@ -32,8 +32,10 @@ class Contenedor {
 	async save(obj) {
 		try {
 			const newproduct = new ProductoModel(obj);
-			await newproduct.save();
-			console.log(newproduct);
+			const product = await newproduct.save();
+			const productId = product._id.toString();
+			console.log("save", productId);
+			return productId;
 		} catch (error) {
 			throw new Error(`Error: ${error}`);
 		}

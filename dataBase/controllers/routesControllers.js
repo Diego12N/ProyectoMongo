@@ -13,6 +13,7 @@ async function getProducts(id) {
 
 async function saveProducts(req) {
 	const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
+	console.log(nombre, descripcion, codigo, foto, precio, stock);
 
 	const date = new Date();
 	const timestamp = date.toLocaleString();
@@ -28,12 +29,12 @@ async function saveProducts(req) {
 			timestamp,
 		};
 
-		await contenedor.save(newProduct);
+		const id = await contenedor.save(newProduct);
 
-		console.log(newProduct);
-		return newProduct;
+		return id;
 	} else {
 		console.log("Existe al menos un campo vacio");
+		return {};
 	}
 }
 
